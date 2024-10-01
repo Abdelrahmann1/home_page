@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f2f4f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1.2fr;
+    grid-gap: 20px;
+    width: 95%;
+    max-width: 1400px;
+    height: 90vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #eef1f5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid #dcdcdc;
+}
+
+.profile {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.notification-dot {
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: -5px;
+}
+
+.nav-button {
+    background-color: #f0f4f8;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+    padding: 30px;
+    background-color: #f9fafc;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.file-count {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.table th {
+    background-color: #f0f4f8;
+}
+
+.action-button {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Right Sidebar */
+.stats {
+    background-color: #eef1f5;
+    padding: 30px;
+    border-left: 2px solid #dcdcdc;
+}
+
+.stat-item {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.stat-item h2 {
+    font-size: 22px;
+    color: #333;
+}
+
+.stat-number {
+    font-size: 36px;
+    color: #007bff;
+    margin: 10px 0;
+}
