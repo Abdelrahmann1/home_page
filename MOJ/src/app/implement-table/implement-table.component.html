@@ -1,0 +1,331 @@
+<div class="row mb-3">
+  <div class="col-6">
+    <div class="date">
+      <img src="assets/Calendar_Icon.png" class="calendar" alt="">
+      <p>فلتر بالتاريخ</p>
+    </div>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <div class="text-under">
+      <p>ملفات قيد التنفيذ</p>
+      <p>ملف 39</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="بحث سريع، يُرجى كتابة أي كلمة هنا…"
+      aria-describedby="button-addon1">
+    <div class="search-div">
+      <img src="assets/Search_Icon.png" class="search-btn" alt="">
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row labels-row">
+  <div class="col-lg-2 col-md-3 col-sm-4 ">الإجراء</div>
+  <div class="col-lg-1 col-md-1 col-sm-4 ">الإيصال</div>
+  <div class="col-lg-2 col-md-3 col-sm-4">الحالة</div>
+  <div class="col-lg-3 col-md-3 col-sm-4">المدعى عليه والحكم</div>
+  <div class="col-lg-2 col-md-3 col-sm-4">المدعي</div>
+  <div class="col-lg-2 col-md-3 col-sm-4">الآلي والتاريخ</div>
+</div>
+
+
+<div class="col">
+  <div class="row mt-3 item-row">
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <button class="btn btn-add" (click)="showModal('firstModal')">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-4 one-col">
+      <img src="assets/pdf.png" class="judge-img" alt="">
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <div class="statuesplus">
+        <p>تم دفع المبلغ</p>
+        <img src="assets/check-mark.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 one-col">
+      <div class="names">
+        <div class="name">
+          <p>محمد خالد عبدالله أحمد</p>
+          <div class="judgment">
+            <img src="assets/Path 67748.png" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+        </div>
+        <p>محمد خالد عبدالله أحمد</p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <p>محمد خالد عبدالله أحمد</p>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <p class="id">64784676</p>
+      <div class="time-day">
+        <p>2024/8/26</p>
+        <p>الاثنين</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3 item-row">
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <button class="btn  btn-add">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-4 one-col">
+      <img src="assets/pdf.png" class="judge-img" alt="">
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <div class="statuesfalse">
+        <p>لم يتم الدفع</p>
+        <img src="assets/Icon ionic-ios-close-circle-outline.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 one-col">
+      <div class="names">
+        <div class="name">
+          <p>محمد خالد عبدالله أحمد</p>
+          <div class="judgment">
+            <img src="assets/Path 67748.png" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+        </div>
+        <p>محمد خالد عبدالله أحمد</p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <p>محمد خالد عبدالله أحمد</p>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <p class="id">64784676</p>
+      <div class="time-day">
+        <p>2024/8/26</p>
+        <p>الاثنين</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3 item-row">
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <button class="btn  btn-add">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-4 one-col">
+      <img src="assets/pdf.png" class="judge-img" alt="">
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <div class="statuesplus">
+        <p>تم دفع المبلغ</p>
+        <img src="assets/check-mark.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 one-col">
+      <div class="names">
+        <div class="name">
+          <p>محمد خالد عبدالله أحمد</p>
+          <div class="judgment">
+            <img src="assets/Path 67748.png" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+        </div>
+        <p>محمد خالد عبدالله أحمد</p>
+        <div class="name">
+          <p>محمد خالد عبدالله أحمد</p>
+          <div class="judgment">
+            <img src="assets/Path 67748.png" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <p>محمد خالد عبدالله أحمد</p>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <p class="id">64784676</p>
+      <div class="time-day">
+        <p>2024/8/26</p>
+        <p>الاثنين</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- First Modal -->
+<div class="modal fade" id="firstModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="firstModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class=" btn-close"  (click)="hideModal('firstModal')"></button>
+        <div class="header-title">
+          <p class="modal-title " id="staticBackdropLabel">التنفيذ</p>
+          <img src="assets/flag.png" alt="">
+        </div>
+      </div>
+      <div class="modal-body text-center">
+        <p>يُرجى تحديد نوع الأجراء</p>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="sm-cards">
+              <div class="sm-card">
+                <label for="flexCheckDefault">
+                  <img src="assets/travelx2.png" alt="Travel Ban">
+                  <p>منع سفر</p>
+                </label>
+                <input class="form-check-input" type="checkbox"  id="flexCheckDefault">
+              </div>
+<div class="sm-card">
+                <label for="flexCheckDefault2">
+                  <img src="assets/travelx2.png" alt="Travel Ban">
+                  <p>منع سفر</p>
+                </label>
+                <input class="form-check-input" type="checkbox"  id="flexCheckDefault2">
+              </div>
+              <div class="sm-card">
+                <label for="flexCheckDefault3">
+                  <img src="assets/travelx2.png" alt="Travel Ban">
+                  <p>منع سفر</p>
+                </label>
+                <input class="form-check-input" type="checkbox"  id="flexCheckDefault3">
+              </div>
+              <div class="sm-card mt-3">
+                <label for="flexCheckDefault4">
+                  <img src="assets/travelx2.png" alt="Travel Ban">
+                  <p>منع سفر</p>
+                </label>
+                <input class="form-check-input" type="checkbox"  id="flexCheckDefault4">
+              </div>
+              <div class="sm-card mt-3">
+                <label for="flexCheckDefault5">
+                  <img src="assets/travelx2.png" alt="Travel Ban">
+                  <p>منع سفر</p>
+                </label>
+                <input class="form-check-input" type="checkbox"  id="flexCheckDefault5">
+              </div>
+              <div class="sm-card mt-3">
+                <label for="flexCheckDefault6">
+                  <img src="assets/travelx2.png" alt="Travel Ban">
+                  <p>منع سفر</p>
+                </label>
+                <input class="form-check-input" type="checkbox"  id="flexCheckDefault6">
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="row  modal-cols">
+              <div class="col-8">
+                <p>64784676</p>
+                <p>محمد خالد عبدالله</p>
+                <p>حور احمد كامل الفضلي</p>
+                <div class="statuesplus pluspop">
+                  <p>تم دفع المبلغ</p>
+                  <img src="assets/check-mark.png" alt="">
+                </div>
+                <p>3/9/2024</p>
+              </div>
+              <div class="col-4">
+                <p>الرقم الآلي</p>
+                <p>المدعي</p>
+                <p>المدعى عليه</p>
+                <p>الحالة</p>
+                <p>التاريخ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  (click)="showModal('secondModal')">
+          تنفيذ الإجراء
+          <img src="assets/checkmark_white.png" alt="">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Second Modal -->
+<div class="modal fade" id="secondModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="secondModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header modal-header2">
+        <button type="button" class=" btn-close"  (click)="hideModal('secondModal')"></button>
+
+      </div>
+      <div class="modal-body text-center">
+        <img src="assets/copy.png" alt="">
+        <p>هل أنت متأكد من تنفيذ الأجراء؟</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  (click)="hideModal('secondModal');hideModal('firstModal');showModal('thirdModal')">
+          نعم، نفذ الإجراء
+          <img src="assets/checkmark_white.png" alt="">
+
+        </button>
+
+        <button type="button" class="btn btn-primary btn-back" (click)="hideModal('secondModal')">
+          لا، رجوع
+         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="thirdModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="secondModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header modal-header2">
+        <button type="button" class=" btn-close"  (click)="hideModal('thirdModal')"></button>
+
+      </div>
+      <div class="modal-body text-center success-text-modal">
+        <img src="assets/copy.png" alt="">
+        <p class ="success-text">تم تنفيذ الإجراء بنجاح</p>
+        <p>سيتم إغلاق النافذة تلقائياً بعد لحظات</p>
+      </div>
+    </div>
+  </div>
+</div>
+

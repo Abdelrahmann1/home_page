@@ -1,0 +1,37 @@
+<div class="container-choose">
+  <div class="card-choose"
+       (click)="updateParameter('add')"
+       [ngClass]="{'card-choose': sharedParameter === 'add', 'card': sharedParameter === 'implement'}">
+      <div class="row">
+          <div class="col-2">
+              <p class="e3lan-num" [ngClass]="{'color-white': sharedParameter === 'add', 'color-main': sharedParameter === 'implement'}">39</p>
+          </div>
+          <div class="col-7">
+              <p class="e3lan-title" [ngClass]="{'color-white': sharedParameter === 'add', 'color-main': sharedParameter === 'implement'}">الإعلان</p>
+              <p class="e3lan-desc" [ngClass]="{'color-white': sharedParameter === 'add', 'color-main': sharedParameter === 'implement'}">ملفات قيد الإستلام</p>
+          </div>
+          <div class="col-2">
+              <img src="assets/E3lan_Icon.png" class="e3lan" alt="">
+          </div>
+          <div class="under-choosen" [ngClass]="{'d-none': sharedParameter === 'implement'}"></div>
+        </div>
+      </div>
+
+      <div class="card"
+      (click)="updateParameter('implement')"
+      [ngClass]="{'card-choose': sharedParameter === 'implement', 'card': sharedParameter === 'add'}">
+      <div class="row">
+          <div class="col-2">
+              <p class="e3lan-num" [ngClass]="{'color-white': sharedParameter === 'implement', 'color-main': sharedParameter === 'add'}">349</p>
+            </div>
+          <div class="col-7">
+            <p class="e3lan-title" [ngClass]="{'color-white': sharedParameter === 'implement', 'color-main': sharedParameter === 'add'}">التنفيذ</p>
+            <p class="e3lan-desc" [ngClass]="{'color-white': sharedParameter === 'implement', 'color-main': sharedParameter === 'add'}">ملفات قيد التنفيذ</p>
+          </div>
+          <div class="col-2">
+            <img src="assets/Tanfez_Icon.png" class="e3lan" alt="">
+          </div>
+        </div>
+        <div class="under-choosen" [ngClass]="{'d-none': sharedParameter === 'add'}"></div>
+  </div>
+</div>

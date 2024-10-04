@@ -1,0 +1,119 @@
+.modal-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.modal-footer> button{
+  background-color: #B39D74;
+  font-size: 18px;
+  color: white;
+  border-radius: 35px;
+  border: none ;
+  padding: .5rem 1.5rem;
+  gap: 5%;
+}
+.modal-footer> img{
+  height: 19px;
+  width:  19px;
+}
+
+
+
+.header-title{
+  font-size: 25px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+.modal-header{
+  justify-content: start;
+}
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-footer,.modal-header{
+  border: none !important;
+}
+
+.btn-close
+{
+  border: 1px black solid;
+  margin: 0;
+  padding: .5rem;
+  border-radius: 50%;
+}
+
+.modal-body>p{
+  font-size: 30px;
+width: 100%;}
+.sm-card >label >img{
+  height: 50px;
+width:  50px;
+}
+.sm-card{
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem 1rem;
+  border: 1px solid #EFEDE6;
+  background-color: #F7F6F4;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10%;
+}
+
+.sm-cards{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.modal {
+  --bs-modal-width: 800px !important;
+}
+
+.pluspop{
+  padding:  .3rem .5rem .3rem 1rem;
+}
+
+.form-check-input {
+height: 1.4rem;
+width: 1.4rem;
+}
+
+.form-check-input:checked {
+background-color: #B39D74;
+border: none;
+box-shadow: none;
+}
+
+.btn-back{
+  color: black !important;
+  background-color: white !important;
+  border: none !important;
+}
+/* Prevent the first modal from being hidden */
+.modal.fade {
+  z-index: 1050 ;
+}
+
+.modal.show {
+  z-index: 1060;
+}
+/* .fade{
+  z-index: 100 !important;
+
+} */
+
+/* Ensure second modal appears above the first modal */
+#staticBackdrop2.modal.show {
+  z-index: 1090; /* Higher than the first modal */
+}

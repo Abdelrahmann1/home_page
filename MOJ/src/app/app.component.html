@@ -1,0 +1,91 @@
+<div class="container themain ">
+  <div class="row main-header">
+
+    <div class=" navaya ">
+      <img src="assets/User_Img.png" class="user-img" alt="">
+      <div class="notification">
+        <img src="assets/Notification_Icon.png" class="notification-icon" alt="">
+        <p class="notification-text">3</p>
+      </div>
+    </div>
+    <div class="navbar-text">
+      <div class="text-nav">
+        <img src="assets/MOJ_Logo_Symbol.png" class="logo-head" alt="">
+        <p>الادارة العامة للتنفيذ</p>
+        <div class="text-head">
+          <hr>
+          <p>وزارة العدل</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="respons" *ngIf="!isresponsive">
+      <div class="row main-content">
+        <div class="col-lg-9 col-md-12 col-sm-12 mb-3">
+          <div *ngIf="sharedParameter == 'add'">
+            <app-add-table ></app-add-table>
+          </div>
+          <div *ngIf="sharedParameter  != 'add'">
+            <app-implement-table></app-implement-table>
+          </div>
+        </div>
+
+    <div class="col-lg-3 col-md-12 col-sm-12">
+
+      <app-choose-container></app-choose-container>
+    </div>
+      </div>
+  </div>
+  <div class="respons" *ngIf="isresponsive">
+    <div class="row main-content">
+
+        <div class="col-lg-3 col-md-12 col-sm-12">
+
+          <app-choose-container></app-choose-container>
+        </div>
+      <div class="col-lg-9 col-md-12 col-sm-12 mb-3">
+        <div *ngIf="sharedParameter == 'add'">
+          <app-add-table ></app-add-table>
+        </div>
+        <div *ngIf="sharedParameter  != 'add'">
+          <app-implement-table></app-implement-table>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="footer">
+      <div class="footer-text">
+        <p>جميع الحقوق محفوظة لـ الإدارة العامة للتنفيذ © 2023</p>
+        <div class="text-inside-footer">
+          <p>في إدارة تطوير النظم - وزارة العدل </p>
+          <img src="assets/Heart.png" class="heart" alt="">
+          <p>صُنع بـ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+</div>
