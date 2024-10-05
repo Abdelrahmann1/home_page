@@ -18,6 +18,8 @@ export class AppComponent {
   mobileScreenWidth = 991;
   sharedParameter: string = '';
   isresponsive: boolean=false;
+  is_intro_done: boolean=false;
+  introActive: boolean=false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,private sharedService: SharedService) {}
   ngOnInit(): void {
@@ -28,6 +30,10 @@ export class AppComponent {
     });
     this.sharedService.is_responsive$.subscribe(parameter => {
       this.isresponsive = parameter;
+    });
+
+    this.sharedService.is_intro_done$.subscribe(parameter => {
+      this.is_intro_done = parameter;
     });
 
   }
@@ -46,6 +52,7 @@ export class AppComponent {
     if (isPlatformBrowser(this.platformId)) {
       this.isresponsive = window.innerWidth <= this.mobileScreenWidth;
     }
+
   }
 
 }

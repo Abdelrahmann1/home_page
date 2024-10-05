@@ -26,28 +26,41 @@
 
 
 
-<div class="row labels-row">
-  <div class="col-lg-2 col-md-3 col-sm-4 ">الإجراء</div>
-  <div class="col-lg-1 col-md-1 col-sm-4 ">الإيصال</div>
-  <div class="col-lg-2 col-md-3 col-sm-4">الحالة</div>
-  <div class="col-lg-3 col-md-3 col-sm-4">المدعى عليه والحكم</div>
-  <div class="col-lg-2 col-md-3 col-sm-4">المدعي</div>
-  <div class="col-lg-2 col-md-3 col-sm-4">الآلي والتاريخ</div>
+<div class="row labels-row flex-row" *ngIf="!isresponsive">
+  <div class="col-lg-2 col-md-12 col-sm-12 ">الإجراء</div>
+  <div class="col-lg-2 col-md-12 col-sm-12">الحكم</div>
+  <div class="col-lg-3 col-md-12 col-sm-12">المدعى عليه</div>
+  <div class="col-lg-3 col-md-12 col-sm-12">المدعي</div>
+  <div class="col-lg-2 col-md-12 col-sm-12">الآلي والتاريخ</div>
 </div>
 
 
 <div class="col">
-  <div class="row mt-3 item-row">
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
-      <button class="btn btn-add" (click)="showModal('firstModal')">
+
+
+  <div class="row m-1 mt-3 item-row">
+    <div class="firstline" *ngIf="isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+      <img src="assets/pdf.png" class="judge-img" alt="">
+
+      <div class="statuesplus">
+        <p>تم دفع المبلغ</p>
+        <img src="assets/check-mark.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
         <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
         تنفيذ
       </button>
     </div>
-    <div class="col-lg-1 col-md-1 col-sm-4 one-col">
+    <div class="col-lg-1 col-md-1 col-sm-4 one-col" *ngIf="!isresponsive">
       <img src="assets/pdf.png" class="judge-img" alt="">
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
       <div class="statuesplus">
         <p>تم دفع المبلغ</p>
         <img src="assets/check-mark.png" alt="">
@@ -56,8 +69,11 @@
     <div class="col-lg-3 col-md-3 col-sm-4 one-col">
       <div class="names">
         <div class="name">
-          <p>محمد خالد عبدالله أحمد</p>
-          <div class="judgment">
+          <div class="two-titles">
+            <p *ngIf="isresponsive">:المدعى عليه</p>
+            <p>محمد خالد عبدالله أحمد</p>
+          </div>
+          <div class="judgment ">
             <img src="assets/Path 67748.png" alt="">
             <p>منع سفر</p>
           </div>
@@ -66,32 +82,49 @@
             <p>منع سفر</p>
           </div>
         </div>
+
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <div class="two-titles">
+        <p *ngIf="isresponsive">:المدعى</p>
         <p>محمد خالد عبدالله أحمد</p>
       </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
-      <p>محمد خالد عبدالله أحمد</p>
-    </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
-      <p class="id">64784676</p>
-      <div class="time-day">
-        <p>2024/8/26</p>
-        <p>الاثنين</p>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col dateandtime">
+      <p class="p-text">الآلي والتاريخ</p>
+      <div class="all-in-one">
+        <p class="id">64784676</p>
+        <div class="time-day">
+          <p>2024/8/26</p>
+          <p>الاثنين</p>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row m-1 mt-3 item-row">
+    <div class="firstline" *ngIf="isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+      <img src="assets/pdf.png" class="judge-img" alt="">
 
-  <div class="row mt-3 item-row">
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
-      <button class="btn  btn-add">
+      <div class="statuesfalse">
+        <p>لم يتم الدفع</p>
+        <img src="assets/Icon ionic-ios-close-circle-outline.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
         <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
         تنفيذ
       </button>
     </div>
-    <div class="col-lg-1 col-md-1 col-sm-4 one-col">
+    <div class="col-lg-1 col-md-1 col-sm-4 one-col" *ngIf="!isresponsive">
       <img src="assets/pdf.png" class="judge-img" alt="">
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
       <div class="statuesfalse">
         <p>لم يتم الدفع</p>
         <img src="assets/Icon ionic-ios-close-circle-outline.png" alt="">
@@ -100,8 +133,11 @@
     <div class="col-lg-3 col-md-3 col-sm-4 one-col">
       <div class="names">
         <div class="name">
-          <p>محمد خالد عبدالله أحمد</p>
-          <div class="judgment">
+          <div class="two-titles">
+            <p *ngIf="isresponsive">:المدعى عليه</p>
+            <p>محمد خالد عبدالله أحمد</p>
+          </div>
+          <div class="judgment ">
             <img src="assets/Path 67748.png" alt="">
             <p>منع سفر</p>
           </div>
@@ -110,38 +146,175 @@
             <p>منع سفر</p>
           </div>
         </div>
+
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <div class="two-titles">
+        <p *ngIf="isresponsive">:المدعى</p>
         <p>محمد خالد عبدالله أحمد</p>
       </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
-      <p>محمد خالد عبدالله أحمد</p>
-    </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
-      <p class="id">64784676</p>
-      <div class="time-day">
-        <p>2024/8/26</p>
-        <p>الاثنين</p>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col dateandtime">
+      <p class="p-text">الآلي والتاريخ</p>
+      <div class="all-in-one">
+        <p class="id">64784676</p>
+        <div class="time-day">
+          <p>2024/8/26</p>
+          <p>الاثنين</p>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row m-1 mt-3 item-row">
+    <div class="firstline" *ngIf="isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+      <img src="assets/pdf.png" class="judge-img" alt="">
 
-  <div class="row mt-3 item-row">
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
-      <button class="btn  btn-add">
+      <div class="statuesplus">
+        <p>تم دفع المبلغ</p>
+        <img src="assets/check-mark.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
         <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
         تنفيذ
       </button>
     </div>
-    <div class="col-lg-1 col-md-1 col-sm-4 one-col">
+    <div class="col-lg-1 col-md-1 col-sm-4 one-col" *ngIf="!isresponsive">
       <img src="assets/pdf.png" class="judge-img" alt="">
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
       <div class="statuesplus">
         <p>تم دفع المبلغ</p>
         <img src="assets/check-mark.png" alt="">
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-4 one-col">
+      <div class="names">
+        <div class="name">
+          <div class="two-titles">
+            <p *ngIf="isresponsive">:المدعى عليه</p>
+            <p>محمد خالد عبدالله أحمد</p>
+          </div>
+          <div class="judgment ">
+            <img src="assets/Path 67748.png" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <div class="two-titles">
+        <p *ngIf="isresponsive">:المدعى</p>
+        <p>محمد خالد عبدالله أحمد</p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col dateandtime">
+      <p class="p-text" *ngIf="isresponsive">الآلي والتاريخ</p>
+      <div class="all-in-one">
+        <p class="id">64784676</p>
+        <div class="time-day">
+          <p>2024/8/26</p>
+          <p>الاثنين</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row m-1 mt-3 item-row">
+    <div class="firstline" *ngIf="isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+      <img src="assets/pdf.png" class="judge-img" alt="">
+
+      <div class="statuesfalse">
+        <p>لم يتم الدفع</p>
+        <img src="assets/Icon ionic-ios-close-circle-outline.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
+      <button class="btn  btn-add" (click)="showModal('firstModal')">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-4 one-col" *ngIf="!isresponsive">
+      <img src="assets/pdf.png" class="judge-img" alt="">
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col" *ngIf="!isresponsive">
+      <div class="statuesfalse">
+        <p>لم يتم الدفع</p>
+        <img src="assets/Icon ionic-ios-close-circle-outline.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 one-col">
+      <div class="names">
+        <div class="name">
+          <div class="two-titles">
+            <p *ngIf="isresponsive">:المدعى عليه</p>
+            <p>محمد خالد عبدالله أحمد</p>
+          </div>
+          <div class="judgment ">
+            <img src="assets/Path 67748.png" alt="">
+            <p>منع سفر</p>
+          </div>
+          <div class="judgment">
+            <img src="assets/Path 67749.png" class="judge2" alt="">
+            <p>منع سفر</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+      <div class="two-titles">
+        <p *ngIf="isresponsive">:المدعى</p>
+        <p>محمد خالد عبدالله أحمد</p>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 one-col dateandtime">
+      <p class="p-text">الآلي والتاريخ</p>
+      <div class="all-in-one">
+        <p class="id">64784676</p>
+        <div class="time-day">
+          <p>2024/8/26</p>
+          <p>الاثنين</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="row m-1 mt-3 item-row">
+    <div class="row align-items-center" [ngClass]="{'card-left': isresponsive}">
+
+    <div class="col-lg-2 col-md-3 col-sm-12 one-col">
+      <button class="btn btn-add" (click)="showModal('firstModal')">
+        <img src="assets/Icon akar-arrow-left.png" class="arrow-img" alt="">
+        تنفيذ
+      </button>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-12 one-col">
+      <img src="assets/pdf.png" class="judge-img" alt="">
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-12 one-col">
+      <div class="statuesplus">
+        <p>تم دفع المبلغ</p>
+        <img src="assets/check-mark.png" alt="">
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 one-col">
       <div class="names">
         <div class="name">
           <p>محمد خالد عبدالله أحمد</p>
@@ -153,33 +326,14 @@
             <img src="assets/Path 67749.png" class="judge2" alt="">
             <p>منع سفر</p>
           </div>
-          <div class="judgment">
-            <img src="assets/Path 67749.png" class="judge2" alt="">
-            <p>منع سفر</p>
-          </div>
         </div>
         <p>محمد خالد عبدالله أحمد</p>
-        <div class="name">
-          <p>محمد خالد عبدالله أحمد</p>
-          <div class="judgment">
-            <img src="assets/Path 67748.png" alt="">
-            <p>منع سفر</p>
-          </div>
-          <div class="judgment">
-            <img src="assets/Path 67749.png" class="judge2" alt="">
-            <p>منع سفر</p>
-          </div>
-          <div class="judgment">
-            <img src="assets/Path 67749.png" class="judge2" alt="">
-            <p>منع سفر</p>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+    <div class="col-lg-2 col-md-3 col-sm-12 one-col">
       <p>محمد خالد عبدالله أحمد</p>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-4 one-col">
+    <div class="col-lg-2 col-md-3 col-sm-12 one-col first-col">
       <p class="id">64784676</p>
       <div class="time-day">
         <p>2024/8/26</p>
@@ -188,15 +342,40 @@
     </div>
   </div>
 
+
+
+
+
+
+
+
+
+    <div class="card-left  h-100" *ngIf="isresponsive">
+      <div class="labels-row">
+        <p class="p-text">الإجراء</p>
+        <p class="  p-text">الايصال</p>
+        <p class="  p-text">الحالة</p>
+        <p class="p-text">المدعى عليه</p>
+        <p class="p-text">المدعي</p>
+        <p class="p-text">الآلي والتاريخ</p>
+      </div>
+
+  </div>
+  </div> -->
+
+
+
+
 </div>
 
 
 <!-- First Modal -->
-<div class="modal fade" id="firstModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="firstModalLabel" aria-hidden="true">
+<div class="modal fade" id="firstModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="firstModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class=" btn-close"  (click)="hideModal('firstModal')"></button>
+        <button type="button" class=" btn-close" (click)="hideModal('firstModal')"></button>
         <div class="header-title">
           <p class="modal-title " id="staticBackdropLabel">التنفيذ</p>
           <img src="assets/flag.png" alt="">
@@ -207,65 +386,70 @@
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="sm-cards">
-              <div class="sm-card">
+              <div class="sm-card" [ngClass]="{'active': cardStates[0]}">
                 <label for="flexCheckDefault">
                   <img src="assets/travelx2.png" alt="Travel Ban">
                   <p>منع سفر</p>
                 </label>
-                <input class="form-check-input" type="checkbox"  id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" (change)="toggleCardState(0)">
               </div>
-<div class="sm-card">
+
+              <div class="sm-card" [ngClass]="{'active': cardStates[1]}">
                 <label for="flexCheckDefault2">
                   <img src="assets/travelx2.png" alt="Travel Ban">
                   <p>منع سفر</p>
                 </label>
-                <input class="form-check-input" type="checkbox"  id="flexCheckDefault2">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault2" (change)="toggleCardState(1)">
               </div>
-              <div class="sm-card">
+
+              <div class="sm-card" [ngClass]="{'active': cardStates[2]}">
                 <label for="flexCheckDefault3">
                   <img src="assets/travelx2.png" alt="Travel Ban">
                   <p>منع سفر</p>
                 </label>
-                <input class="form-check-input" type="checkbox"  id="flexCheckDefault3">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault3" (change)="toggleCardState(2)">
               </div>
-              <div class="sm-card mt-3">
+
+              <div class="sm-card mt-3" [ngClass]="{'active': cardStates[3]}">
                 <label for="flexCheckDefault4">
                   <img src="assets/travelx2.png" alt="Travel Ban">
                   <p>منع سفر</p>
                 </label>
-                <input class="form-check-input" type="checkbox"  id="flexCheckDefault4">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault4" (change)="toggleCardState(3)">
               </div>
-              <div class="sm-card mt-3">
+
+              <div class="sm-card mt-3" [ngClass]="{'active': cardStates[4]}">
                 <label for="flexCheckDefault5">
                   <img src="assets/travelx2.png" alt="Travel Ban">
                   <p>منع سفر</p>
                 </label>
-                <input class="form-check-input" type="checkbox"  id="flexCheckDefault5">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault5" (change)="toggleCardState(4)">
               </div>
-              <div class="sm-card mt-3">
+
+              <div class="sm-card mt-3" [ngClass]="{'active': cardStates[5]}">
                 <label for="flexCheckDefault6">
                   <img src="assets/travelx2.png" alt="Travel Ban">
                   <p>منع سفر</p>
                 </label>
-                <input class="form-check-input" type="checkbox"  id="flexCheckDefault6">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault6" (change)="toggleCardState(5)">
               </div>
 
-            </div>
 
+            </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="row  modal-cols">
-              <div class="col-8">
+              <div class=" insm-cols col-lg-8 col-md-6 col-sm-6 kohlyghamk-p">
                 <p>64784676</p>
                 <p>محمد خالد عبدالله</p>
                 <p>حور احمد كامل الفضلي</p>
-                <div class="statuesplus pluspop">
+                <div class="statuesplus pluspop" style="border: none !important;">
                   <p>تم دفع المبلغ</p>
                   <img src="assets/check-mark.png" alt="">
                 </div>
                 <p>3/9/2024</p>
               </div>
-              <div class="col-4">
+              <div class="insm-cols col-lg-4 col-md-6 col-sm-6 kohly-p">
                 <p>الرقم الآلي</p>
                 <p>المدعي</p>
                 <p>المدعى عليه</p>
@@ -277,7 +461,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  (click)="showModal('secondModal')">
+        <button type="button" class="btn btn-primary" (click)="showModal('secondModal')">
           تنفيذ الإجراء
           <img src="assets/checkmark_white.png" alt="">
         </button>
@@ -287,11 +471,12 @@
 </div>
 
 <!-- Second Modal -->
-<div class="modal fade" id="secondModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="secondModalLabel" aria-hidden="true">
+<div class="modal modal-400 fade" id="secondModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="secondModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header modal-header2">
-        <button type="button" class=" btn-close"  (click)="hideModal('secondModal')"></button>
+        <button type="button" class=" btn-close" (click)="hideModal('secondModal')"></button>
 
       </div>
       <div class="modal-body text-center">
@@ -299,7 +484,8 @@
         <p>هل أنت متأكد من تنفيذ الأجراء؟</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  (click)="hideModal('secondModal');hideModal('firstModal');showModal('thirdModal')">
+        <button type="button" class="btn btn-primary"
+          (click)="hideModal('secondModal');hideModal('firstModal');showModal('thirdModal')">
           نعم، نفذ الإجراء
           <img src="assets/checkmark_white.png" alt="">
 
@@ -307,25 +493,25 @@
 
         <button type="button" class="btn btn-primary btn-back" (click)="hideModal('secondModal')">
           لا، رجوع
-         </button>
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="thirdModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="secondModalLabel" aria-hidden="true">
+<div class="modal modal-400 fade" id="thirdModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="secondModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header modal-header2">
-        <button type="button" class=" btn-close"  (click)="hideModal('thirdModal')"></button>
+        <button type="button" class=" btn-close" (click)="hideModal('thirdModal')"></button>
 
       </div>
       <div class="modal-body text-center success-text-modal">
         <img src="assets/copy.png" alt="">
-        <p class ="success-text">تم تنفيذ الإجراء بنجاح</p>
+        <p class="success-text">تم تنفيذ الإجراء بنجاح</p>
         <p>سيتم إغلاق النافذة تلقائياً بعد لحظات</p>
       </div>
     </div>
   </div>
 </div>
-

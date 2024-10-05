@@ -73,7 +73,11 @@
 }
 .number-money {
   font-size: 40px !important;
-  color: #60481f;
+  color: #60481F !important;
+  font-weight: 500;
+}
+.the-tot-text{
+  color: #0C3443 !important;
 }
 .modal {
   --bs-modal-width: 800px !important;
@@ -167,7 +171,8 @@ h3 {
   flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: center;
-  gap: 3%;
+  gap: 2%;
+  padding-left: 2%;
 }
 .col-in-col>p:first-child{
   color:#B39D74 ;
@@ -252,6 +257,13 @@ margin-bottom: 2% !important;
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
+.two-text > p:last-child{
+  font-weight: 300;
+}
+.count-money-text{
+  font-size: 27px;
+  color: #0C3443 !important;
+}
 .dropdown{
   width: fit-content;
   height: 100%;
@@ -262,10 +274,7 @@ margin-bottom: 2% !important;
   border: 1px solid #e5e5e5;
   border-right: none;
 }
-.choose-money{
-  border-radius: 38px ;
-  width: 40% !important;
-}
+
 .choose-money >button{
   padding: .2rem 0;
   border: none;
@@ -309,8 +318,8 @@ margin-bottom: 2% !important;
   border-radius: 0 !important;
   border-left: none !important;
 }
-.dates >div{
-  width: 28%;
+.w-28{
+  width: 28% !important;
 }
 
 .moneyinput{
@@ -386,6 +395,7 @@ margin-bottom: 2% !important;
 .calendar-icon {
   position: absolute;
   right: 16px;
+  top: 4px;
   cursor: pointer;
 }
 
@@ -413,10 +423,30 @@ margin-bottom: 2% !important;
 
 
 
+.form-control-pop{
+  padding-right: 1.5rem !important;
+
+}
 
 
 
 
 
 
+.choose-money{
+  border-radius: 38px ;
+  width: 40% ;
+}
 
+@media (max-width: 1000px) {
+  .choose-money,.w-28{
+width: 100% !important;
+}
+}
+
+.btns-send{
+  width: fit-content;
+  gap: 7%;
+  text-wrap: nowrap;
+  padding: 1rem 1.5rem;
+}

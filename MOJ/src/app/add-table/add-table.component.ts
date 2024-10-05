@@ -1,27 +1,72 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 import { SharedService } from '../shared.service';
-import { CommonModule } from '@angular/common';
-import { FormsModule,  } from '@angular/forms';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import flatpickr from "flatpickr";
 
 @Component({
   selector: 'app-add-table',
   standalone: true,
-  imports: [CommonModule,FormsModule ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './add-table.component.html',
-  styleUrl: './add-table.component.css'
+  styleUrl: './add-table.component.css',
 })
 export class AddTableComponent {
   mobileScreenWidth = 991;
-  isresponsive: boolean=false;
+  isresponsive: boolean = false;
   isDropdownOpen = false;
-
-  constructor(private sharedService: SharedService) {}
+  sharedParameter: string = '';
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private sharedService: SharedService,
+    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.sharedService.is_responsive$.subscribe(parameter => {
+    this.sharedService.is_responsive$.subscribe((parameter) => {
       this.isresponsive = parameter;
+      this.cdr.detectChanges(); // Force change detection after the async change
     });
   }
+  ngAfterViewInit(): void {
+    // flatpickr(".date", {});
+    this.checkScreenSize();
+    this.initializeFlatpickr();
+
+  }
+  initializeFlatpickr(): void {
+    flatpickr('.date', {
+      dateFormat: 'Y-m-d', // Specify the date format
+      disableMobile: true, // Prevents the native mobile date picker
+      locale: {
+        firstDayOfWeek: 1, // Start the week on Monday (optional)
+      },
+    });
+  }
+  @HostListener('window:resize', ['$event'])
+  checkScreenSize(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isresponsive = window.innerWidth <= this.mobileScreenWidth;
+      this.cdr.detectChanges(); // Force change detection after the async change
+
+    }
+  }
+  onResize(event: any): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
+      this.cdr.detectChanges(); // Force change detection after the async change
+    }
+  }
+
   startDate: string | null = null;
   endDate: string | null = null;
   selectedDate: string | null = null; // Variable to store selected date
@@ -30,7 +75,7 @@ export class AddTableComponent {
     dropdown1: null,
     dropdown2: null,
     dropdown3: null,
-    dropdown4: null
+    dropdown4: null,
   };
 
   selectDuration(dropdownId: string, duration: string): void {
@@ -44,21 +89,25 @@ export class AddTableComponent {
   getSelectedValue(dropdownId: string): string {
     // Custom responses based on dropdownId
     if (dropdownId === 'dropdown1') {
-      return this.dropdownStates[dropdownId] ? this.dropdownStates[dropdownId] : 'دينار كويتي';
-    } else if (dropdownId === 'dropdown2') {
-      return this.dropdownStates[dropdownId] ? this.dropdownStates[dropdownId] : 'دينار كويتي';
-    }
-   else if (dropdownId === 'dropdown3') {
-    return this.dropdownStates[dropdownId] ? this.dropdownStates[dropdownId] : 'حدد مدة الزيادة';
-  }
-
-     else {
+      return this.dropdownStates[dropdownId]
+        ? this.dropdownStates[dropdownId]
+        : 'دينار كويتي';
+    } else if (dropdownId === 'dropdown3') {
+      return this.dropdownStates[dropdownId]
+        ? this.dropdownStates[dropdownId]
+        : 'حدد مدة الزيادة';
+    } else {
       // Default response for other dropdowns
-      return this.dropdownStates[dropdownId] ? this.dropdownStates[dropdownId] : 'حدد مدة الزيادة';
+      return this.dropdownStates[dropdownId]
+        ? this.dropdownStates[dropdownId]
+        : 'حدد مدة الزيادة';
     }
   }
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
+  }
+  toggleDropdownoption(): void {
+    this.isDropdownOpen = false;
   }
   isCalc: boolean = false;
   selectedOption: string = 'option2'; // Tracks the selected option
@@ -121,5 +170,4 @@ export class AddTableComponent {
       }
     }
   }
-
 }

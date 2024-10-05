@@ -1,21 +1,60 @@
-import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { SharedService } from '../shared.service';
+import flatpickr from "flatpickr";
 @Component({
   selector: 'app-implement-table',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './implement-table.component.html',
-  styleUrl: './implement-table.component.css'
+  styleUrl: './implement-table.component.css',
 })
 export class ImplementTableComponent {
   mobileScreenWidth = 991;
-  isresponsive: boolean=false;
-  constructor(private sharedService: SharedService) {}
+  isresponsive: boolean = false;
+
+    constructor(private sharedService: SharedService, @Inject(PLATFORM_ID) private platformId: Object,private cdr: ChangeDetectorRef) {}
   ngOnInit(): void {
-    this.sharedService.is_responsive$.subscribe(parameter => {
+    this.sharedService.is_responsive$.subscribe((parameter) => {
       this.isresponsive = parameter;
+      this.cdr.detectChanges(); // Force change detection after the async change
     });
+  }
+  ngAfterViewInit(): void {
+    this.checkScreenSize();
+    this.initializeFlatpickr();
+
+  }
+  initializeFlatpickr(): void {
+    flatpickr('.date', {
+      dateFormat: 'Y-m-d', // Specify the date format
+      disableMobile: true, // Prevents the native mobile date picker
+      locale: {
+        firstDayOfWeek: 1, // Start the week on Monday (optional)
+      },
+    });
+  }
+  @HostListener('window:resize', ['$event'])
+  checkScreenSize(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isresponsive = window.innerWidth <= this.mobileScreenWidth;
+      this.cdr.detectChanges(); // Force change detection after the async change
+
+    }
+  }
+  onResize(event: any): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
+      this.cdr.detectChanges(); // Force change detection after the async change
+    }
+  }
+  cardStates: boolean[] = [false, false, false, false, false, false];
+
+  // Method to toggle the background color based on checkbox click
+  toggleCardState(index: number): void {
+    this.cardStates[index] = !this.cardStates[index];
+    console.log(index);
+
   }
   @ViewChild('firstModal', { static: true }) firstModalElement!: ElementRef;
   @ViewChild('secondModal', { static: true }) secondModalElement!: ElementRef;
@@ -63,5 +102,4 @@ export class ImplementTableComponent {
     this.hideModal('firstModal'); // Hide the first modal
     this.showModal('secondModal'); // Show the second modal
   }
-
 }
